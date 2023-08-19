@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/habit_provider.dart';
 
 class MyGridView extends StatelessWidget {
   const MyGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
     return GridView.count(
       padding: const EdgeInsets.all(16.0),
       childAspectRatio: 3.5,
@@ -15,7 +19,9 @@ class MyGridView extends StatelessWidget {
       children: [
         SizedBox(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              habitProvider.updatePeriod("Morning");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow[500]),
@@ -28,7 +34,9 @@ class MyGridView extends StatelessWidget {
         ),
         SizedBox(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              habitProvider.updatePeriod("Afternoon");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow[500]),
@@ -41,7 +49,9 @@ class MyGridView extends StatelessWidget {
         ),
         SizedBox(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              habitProvider.updatePeriod("Evening");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow[500]),
@@ -52,7 +62,9 @@ class MyGridView extends StatelessWidget {
         ),
         SizedBox(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              habitProvider.updatePeriod("Dawn");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow[500]),
@@ -63,7 +75,9 @@ class MyGridView extends StatelessWidget {
         ),
         SizedBox(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              habitProvider.updatePeriod("Anytime");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow[500]),
@@ -74,7 +88,9 @@ class MyGridView extends StatelessWidget {
         ),
         SizedBox(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              habitProvider.updatePeriod("Noon");
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 foregroundColor: Colors.yellow[500]),

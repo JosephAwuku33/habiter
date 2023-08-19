@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:habiter/widgets/activity_widgets.dart';
 import 'package:habiter/widgets/gridview_widget.dart';
+import 'package:provider/provider.dart';
 
-class CreatePage extends StatelessWidget {
+import '../provider/habit_provider.dart';
+
+class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
 
   @override
+  State<CreatePage> createState() => _CreatePageState();
+}
+
+class _CreatePageState extends State<CreatePage> {
+  final _titleController = TextEditingController();
+
+  final _detailsController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
+    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
+
     return Scaffold(
       backgroundColor: const Color(0xffE5E5E5),
       body: SingleChildScrollView(
@@ -39,17 +53,31 @@ class CreatePage extends StatelessWidget {
                 const SizedBox(height: 20),
                 const Text("Create New Habit", style: TextStyle(fontSize: 24)),
                 const SizedBox(height: 20),
-                const TextField(
-                  style: TextStyle(fontSize: 20),
-                  decoration: InputDecoration(
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Field cannot be empty";
+                    }
+                    return null;
+                  },
+                  controller: _titleController,
+                  style: const TextStyle(fontSize: 20),
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: "Habit Title",
                   ),
                 ),
                 const SizedBox(height: 15),
-                const TextField(
-                  style: TextStyle(fontSize: 15),
-                  decoration: InputDecoration(
+                TextFormField(
+                  controller: _detailsController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Field cannot be empty";
+                    }
+                    return null;
+                  },
+                  style: const TextStyle(fontSize: 15),
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: "Add your habit details",
                   ),
@@ -85,7 +113,10 @@ class CreatePage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.07,
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  habitProvider.updateTitle(_titleController.toString());
+                  habitProvider.updateDetails(_detailsController.toString());
+                },
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.orange[500],
                     shape: RoundedRectangleBorder(
