@@ -54,8 +54,6 @@ class TodayTab extends StatelessWidget {
               children: [
                 SizedBox(height: 30),
                 HabitBlock(habitName: 'Lift Weights'),
-                HabitBlock(habitName: 'Eat Healthy'),
-                HabitBlock(habitName: 'Read a book')
               ],
             ),
           )
