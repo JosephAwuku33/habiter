@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:provider/provider.dart';
-
-import '../provider/habit_provider.dart';
 
 class HabitBlock extends StatelessWidget {
   final String habitName;
@@ -10,7 +7,7 @@ class HabitBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
+    
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
       child: Container(
@@ -31,7 +28,7 @@ class HabitBlock extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      habitProvider.settings.title,
+                      habitName,
                       style: const TextStyle(
                           fontSize: 20, fontWeight: FontWeight.bold),
                     ),

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../provider/habit_provider.dart';
 
 class MyGridView extends StatelessWidget {
-  const MyGridView({super.key});
+  final String selectedTimePeriod;
+  final ValueChanged<String> onTimePeriodSelected;
+  const MyGridView(
+      {super.key,
+      required this.selectedTimePeriod,
+      required this.onTimePeriodSelected});
 
   @override
   Widget build(BuildContext context) {
-    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
     return GridView.count(
       padding: const EdgeInsets.all(16.0),
       childAspectRatio: 3.5,
@@ -20,11 +21,11 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              habitProvider.updatePeriod("Morning");
+              onTimePeriodSelected('Morning');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.yellow[500]),
+                backgroundColor:
+                    selectedTimePeriod == 'Morning' ? Colors.green : null),
             child: const Text(
               'Morning',
               style:
@@ -35,11 +36,11 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              habitProvider.updatePeriod("Afternoon");
+              onTimePeriodSelected('Afternoon');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.yellow[500]),
+                backgroundColor:
+                    selectedTimePeriod == 'Afternoon' ? Colors.green : null),
             child: const Text(
               'Afternoon',
               style:
@@ -50,11 +51,11 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              habitProvider.updatePeriod("Evening");
+              onTimePeriodSelected('Evening');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.yellow[500]),
+                backgroundColor:
+                    selectedTimePeriod == 'Evening' ? Colors.green : null),
             child: const Text('Evening',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
@@ -63,11 +64,11 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              habitProvider.updatePeriod("Dawn");
+              onTimePeriodSelected('Dawn');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.yellow[500]),
+                backgroundColor:
+                    selectedTimePeriod == 'Dawn' ? Colors.green : null),
             child: const Text('Dawn',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
@@ -76,11 +77,11 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              habitProvider.updatePeriod("Anytime");
+              onTimePeriodSelected('Anytime');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.yellow[500]),
+                backgroundColor:
+                    selectedTimePeriod == 'Anytime' ? Colors.green : null),
             child: const Text('Anytime',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
@@ -89,11 +90,11 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              habitProvider.updatePeriod("Noon");
+              onTimePeriodSelected('Noon');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.yellow[500]),
+                backgroundColor:
+                    selectedTimePeriod == 'Noon' ? Colors.green : null),
             child: const Text('Noon',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),

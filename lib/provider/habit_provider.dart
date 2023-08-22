@@ -1,38 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:habiter/models/habit.dart';
 
-class HabitProvider extends ChangeNotifier {
-  Habit _habitSettings = Habit(
-    title: '',
-    details: '',
-    activity: '',
-    period: '',
-  );
+class HabitProvider with ChangeNotifier {
+  final List<Habit> _habits = [];
 
-  Habit get settings => _habitSettings;
+  List<Habit> get settings => _habits;
 
-  void updateSettings(Habit newSettings) {
-    _habitSettings = newSettings;
-    notifyListeners();
-  }
-
-  void updateTitle(String newTitle) {
-    _habitSettings.setTitle(newTitle);
-    notifyListeners();
-  }
-
-  void updateDetails(String newDetails) {
-    _habitSettings.setDetails(newDetails);
-    notifyListeners();
-  }
-
-  void updateActivity(String newActivity) {
-    _habitSettings.setActivity(newActivity);
-    notifyListeners();
-  }
-
-  void updatePeriod(String newPeriod) {
-    _habitSettings.setPeriod(newPeriod);
-    notifyListeners();
+  void addHabit(Habit newHabit) {
+    _habits.add(newHabit);
+    notifyListeners(); // Notify listeners that the habits have changed, so they can update their UI accordingly (e.g., rebuild).
   }
 }

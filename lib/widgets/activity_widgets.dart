@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
-
-import '../provider/habit_provider.dart';
 
 class ActivityWidgets extends StatelessWidget {
-  const ActivityWidgets({super.key});
+  final String selectedActivity;
+  final ValueChanged<String> onSelectedActivity;
+  const ActivityWidgets(
+      {super.key,
+      required this.onSelectedActivity,
+      required this.selectedActivity});
 
   @override
   Widget build(BuildContext context) {
-    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.only(left: 4.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           buildButton(context, 'assets/activity_icons/run.svg', () {
-            habitProvider.updateActivity("Running");
+            onSelectedActivity('Running');
           }),
           buildDivider(),
           buildButton(context, 'assets/activity_icons/w.svg', () {
-            habitProvider.updateActivity("Hydration");
+            onSelectedActivity('Hydration');
           }),
           buildDivider(),
           buildButton(context, 'assets/activity_icons/walk.svg', () {
-            habitProvider.updateActivity("Walking");
+            onSelectedActivity('Walking');
           }),
         ],
       ),
