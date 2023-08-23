@@ -29,7 +29,7 @@ class MyGridView extends StatelessWidget {
             child: const Text(
               'Morning',
               style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
           ),
         ),
@@ -44,7 +44,7 @@ class MyGridView extends StatelessWidget {
             child: const Text(
               'Afternoon',
               style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -58,7 +58,7 @@ class MyGridView extends StatelessWidget {
                     selectedTimePeriod == 'Evening' ? Colors.green : null),
             child: const Text('Evening',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.black)),
+                    fontWeight: FontWeight.bold, color: Colors.white)),
           ),
         ),
         SizedBox(
@@ -71,7 +71,7 @@ class MyGridView extends StatelessWidget {
                     selectedTimePeriod == 'Dawn' ? Colors.green : null),
             child: const Text('Dawn',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.black)),
+                    fontWeight: FontWeight.bold, color: Colors.white)),
           ),
         ),
         SizedBox(
@@ -84,7 +84,7 @@ class MyGridView extends StatelessWidget {
                     selectedTimePeriod == 'Anytime' ? Colors.green : null),
             child: const Text('Anytime',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.black)),
+                    fontWeight: FontWeight.bold, color: Colors.white)),
           ),
         ),
         SizedBox(
@@ -97,7 +97,7 @@ class MyGridView extends StatelessWidget {
                     selectedTimePeriod == 'Noon' ? Colors.green : null),
             child: const Text('Noon',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.black)),
+                    fontWeight: FontWeight.bold, color: Colors.white)),
           ),
         ),
       ],

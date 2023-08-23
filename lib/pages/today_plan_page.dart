@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habiter/widgets/calendar_widgets.dart';
 import 'package:habiter/widgets/habit_block.dart';
 
 class TodayTab extends StatelessWidget {
@@ -11,7 +12,7 @@ class TodayTab extends StatelessWidget {
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 300,
+            height: 370,
             padding: const EdgeInsets.all(10),
             decoration: const BoxDecoration(
                 color: Colors.white,
@@ -19,29 +20,41 @@ class TodayTab extends StatelessWidget {
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30))),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.yellow[600],
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20))),
-                      onPressed: () {},
-                      child: const Text(
-                        "✰ Go Premium",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
-                  // Would need to work on stacking widgets
-                  const Stack(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CircleAvatar(
-                          backgroundImage: AssetImage("assets/Joseph.jpg"),
-                          radius: 30),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.yellow[600],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
+                          onPressed: () {},
+                          child: const Text(
+                            "✰ Go Premium",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
+                      // Would need to work on stacking widgets
+                      const Stack(
+                        children: [
+                          CircleAvatar(
+                              backgroundImage: AssetImage("assets/Joseph.jpg"),
+                              radius: 30),
+                        ],
+                      ),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 30),
+                  const Text(
+                    "Today",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+                  const DateTimeCalendars(),
                 ],
               ),
             ),

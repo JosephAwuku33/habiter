@@ -11,24 +11,21 @@ class ActivityWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 4.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          buildButton(context, 'assets/activity_icons/run.svg', () {
-            onSelectedActivity('Running');
-          }),
-          buildDivider(),
-          buildButton(context, 'assets/activity_icons/w.svg', () {
-            onSelectedActivity('Hydration');
-          }),
-          buildDivider(),
-          buildButton(context, 'assets/activity_icons/walk.svg', () {
-            onSelectedActivity('Walking');
-          }),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        buildButton(context, 'assets/activity_icons/run.svg', () {
+          onSelectedActivity('Running');
+        }),
+        buildDivider(),
+        buildButton(context, 'assets/activity_icons/w.svg', () {
+          onSelectedActivity('Hydration');
+        }),
+        buildDivider(),
+        buildButton(context, 'assets/activity_icons/walk.svg', () {
+          onSelectedActivity('Walking');
+        })
+      ],
     );
   }
 
@@ -39,7 +36,8 @@ class ActivityWidgets extends StatelessWidget {
   Widget buildButton(
           BuildContext context, String assetName, VoidCallback onPresssed) =>
       MaterialButton(
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          padding: const EdgeInsets.only(right: 28),
+          //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onPressed: () {
             onPresssed();
           },

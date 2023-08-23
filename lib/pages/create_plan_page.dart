@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:habiter/widgets/activity_widgets.dart';
 import 'package:habiter/widgets/gridview_widget.dart';
+import 'package:habiter/models/habit.dart';
+import 'package:habiter/provider/habit_provider.dart';
+import 'package:provider/provider.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
@@ -26,7 +29,16 @@ class _CreatePageState extends State<CreatePage> {
     super.dispose();
   }
 
-  void onSubmit() {}
+  void _onSubmit(HabitProvider habitProvider) {
+    if (_formKey.currentState!.validate()) {
+      final newHabit = Habit(
+          title: _habitTitle,
+          details: _habitDetails,
+          activity: _selectedActivity,
+          period: _selectedTimePeriod);
+      habitProvider.addHabit(newHabit);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +55,7 @@ class _CreatePageState extends State<CreatePage> {
           //First container is for the upper section of the page
           Container(
             width: double.infinity,
-            height: 300,
+            height: 330,
             padding: const EdgeInsets.all(16),
             decoration: const BoxDecoration(
                 color: Colors.white,
@@ -150,7 +162,11 @@ class _CreatePageState extends State<CreatePage> {
               height: MediaQuery.of(context).size.height * 0.07,
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final habitProvider =
+                        Provider.of<HabitProvider>(context, listen: false);
+                    _onSubmit(habitProvider);
+                  },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.orange[500],
                       shape: RoundedRectangleBorder(
