@@ -28,8 +28,8 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => CreatePage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const CreatePage()));
         },
         tooltip: 'Add Plan',
         backgroundColor: const Color(0xffFFBD59),

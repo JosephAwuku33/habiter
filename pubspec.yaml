@@ -26,7 +26,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/Joseph.jpg
-    - assets/activity_icons/cycle.svg
+    - assets/activity_icons/cyclist.svg
     - assets/activity_icons/w.svg
     - assets/activity_icons/run.svg
     - assets/activity_icons/walk.svg

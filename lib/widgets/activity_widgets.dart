@@ -24,22 +24,28 @@ class ActivityWidgets extends StatelessWidget {
         buildDivider(),
         buildButton(context, 'assets/activity_icons/walk.svg', () {
           onSelectedActivity('Walking');
-        })
+        }),
+        buildDivider(),
+        buildButton(context, 'assets/activity_icons/cyclist.svg', () {
+          onSelectedActivity('Cycling');
+        }),
       ],
     );
   }
 
   Widget buildDivider() => const SizedBox(
-        height: 10,
+        height: 30,
         child: VerticalDivider(),
       );
   Widget buildButton(
           BuildContext context, String assetName, VoidCallback onPresssed) =>
-      MaterialButton(
-          padding: const EdgeInsets.only(right: 28),
-          //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          onPressed: () {
+      Padding(
+        padding: const EdgeInsets.all(7.0),
+        child: GestureDetector(
+          onTap: () {
             onPresssed();
           },
-          child: SvgPicture.asset(assetName));
+          child: SvgPicture.asset(assetName),
+        ),
+      );
 }

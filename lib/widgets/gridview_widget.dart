@@ -24,12 +24,13 @@ class MyGridView extends StatelessWidget {
               onTimePeriodSelected('Morning');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    selectedTimePeriod == 'Morning' ? Colors.green : null),
+                backgroundColor: selectedTimePeriod == 'Morning'
+                    ? Colors.green
+                    : Colors.white),
             child: const Text(
               'Morning',
               style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
           ),
         ),
@@ -39,12 +40,13 @@ class MyGridView extends StatelessWidget {
               onTimePeriodSelected('Afternoon');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    selectedTimePeriod == 'Afternoon' ? Colors.green : null),
+                backgroundColor: selectedTimePeriod == 'Afternoon'
+                    ? Colors.green
+                    : Colors.white),
             child: const Text(
               'Afternoon',
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -54,11 +56,12 @@ class MyGridView extends StatelessWidget {
               onTimePeriodSelected('Evening');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    selectedTimePeriod == 'Evening' ? Colors.green : null),
+                backgroundColor: selectedTimePeriod == 'Evening'
+                    ? Colors.green
+                    : Colors.white),
             child: const Text('Evening',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white)),
+                    fontWeight: FontWeight.bold, color: Colors.black)),
           ),
         ),
         SizedBox(
@@ -68,10 +71,10 @@ class MyGridView extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(
                 backgroundColor:
-                    selectedTimePeriod == 'Dawn' ? Colors.green : null),
+                    selectedTimePeriod == 'Dawn' ? Colors.green : Colors.white),
             child: const Text('Dawn',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white)),
+                    fontWeight: FontWeight.bold, color: Colors.black)),
           ),
         ),
         SizedBox(
@@ -80,11 +83,12 @@ class MyGridView extends StatelessWidget {
               onTimePeriodSelected('Anytime');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    selectedTimePeriod == 'Anytime' ? Colors.green : null),
+                backgroundColor: selectedTimePeriod == 'Anytime'
+                    ? Colors.green
+                    : Colors.white),
             child: const Text('Anytime',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white)),
+                    fontWeight: FontWeight.bold, color: Colors.black)),
           ),
         ),
         SizedBox(
@@ -94,10 +98,10 @@ class MyGridView extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(
                 backgroundColor:
-                    selectedTimePeriod == 'Noon' ? Colors.green : null),
+                    selectedTimePeriod == 'Noon' ? Colors.green : Colors.white),
             child: const Text('Noon',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.white)),
+                    fontWeight: FontWeight.bold, color: Colors.black)),
           ),
         ),
       ],

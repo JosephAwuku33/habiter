@@ -7,13 +7,12 @@ class HabitBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.grey[400],
+          color: const Color(0xff7F45FF),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -41,7 +40,10 @@ class HabitBlock extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(Icons.settings),
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {},
+            ),
           ],
         ),
       ),
