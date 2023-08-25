@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'habit_model.dart';
+part of 'models/hive_data/habit_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
