@@ -26,7 +26,7 @@ class ActivityWidgets extends StatelessWidget {
           onSelectedActivity('Walking');
         }),
         buildDivider(),
-        buildButton(context, 'assets/activity_icons/cyclist.svg', () {
+        buildButton(context, 'assets/activity_icons/run.svg', () {
           onSelectedActivity('Cycling');
         }),
       ],
@@ -45,7 +45,9 @@ class ActivityWidgets extends StatelessWidget {
           onTap: () {
             onPresssed();
           },
-          child: SvgPicture.asset(assetName),
+          child: SvgPicture.asset(
+            assetName,
+          ),
         ),
       );
 }

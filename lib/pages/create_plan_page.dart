@@ -22,6 +22,12 @@ class _CreatePageState extends State<CreatePage> {
   String _selectedActivity = '';
   String _selectedTimePeriod = '';
 
+  final successSnackBar = const SnackBar(
+    content: Text('Operation performed succesfully'),
+  );
+
+  final errorSnackBar = const SnackBar(content: Text('Error creating habit'));
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -30,13 +36,20 @@ class _CreatePageState extends State<CreatePage> {
   }
 
   void _onSubmit(HabitProvider habitProvider) {
-    if (_formKey.currentState!.validate()) {
-      final newHabit = Habit(
-          title: _habitTitle,
-          details: _habitDetails,
-          activity: _selectedActivity,
-          period: _selectedTimePeriod);
-      habitProvider.addHabit(newHabit);
+    try {
+      if (_formKey.currentState!.validate()) {
+        final newHabit = Habit(
+            title: _habitTitle,
+            details: _habitDetails,
+            activity: _selectedActivity,
+            period: _selectedTimePeriod);
+        habitProvider.addHabit(newHabit);
+
+        ScaffoldMessenger.of(context).showSnackBar(successSnackBar);
+      }
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
+      debugPrint(error.toString());
     }
   }
 

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:habiter/widgets/calendar_widgets.dart';
 import 'package:habiter/widgets/habit_block.dart';
+import 'package:habiter/provider/habit_provider.dart';
+import 'package:provider/provider.dart';
 
 class TodayTab extends StatelessWidget {
   const TodayTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -63,10 +67,17 @@ class TodayTab extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(color: Color(0xffE5E5E5)),
-            child: const Column(
+            child: Column(
               children: [
-                SizedBox(height: 30),
-                HabitBlock(habitName: 'Lift Weights'),
+                const SizedBox(height: 30),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: habitProvider.settings.length,
+                      itemBuilder: (context, index) {
+                        return HabitBlock(
+                            habitName: habitProvider.settings[index].title);
+                      }),
+                )
               ],
             ),
           )
