@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habiter/pages/create_plan_page.dart';
 import 'package:habiter/pages/notifications_page.dart';
-import 'package:habiter/pages/progress_page.dart';
-import 'package:habiter/pages/settings_page.dart';
+//import 'package:habiter/pages/progress_page.dart';
+//import 'package:habiter/pages/settings_page.dart';
 import 'package:habiter/pages/today_plan_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,9 +16,9 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     const TodayTab(),
-    const ProgressPage(),
+    //const ProgressPage(),
     const NotificationsPage(),
-    const SettingsPage()
+    //const SettingsPage()
   ];
 
   @override
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
                 "Today",
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
+          /*
           IconButton(
               padding: const EdgeInsets.only(right: 40),
               onPressed: () {
@@ -60,17 +61,19 @@ class _HomePageState extends State<HomePage> {
                 Icons.electric_bolt,
                 color: Colors.black26,
               )),
+              */
           IconButton(
               padding: const EdgeInsets.only(left: 20),
               onPressed: () {
                 setState(() {
-                  _currentIndex = 2;
+                  _currentIndex = 1;
                 });
               },
               icon: const Icon(
                 Icons.notifications,
                 color: Colors.black26,
               )),
+          /*
           IconButton(
               onPressed: () {
                 setState(() {
@@ -81,6 +84,8 @@ class _HomePageState extends State<HomePage> {
                 Icons.settings,
                 color: Colors.black26,
               )),
+
+              */
         ]),
       ),
       body: _pages[_currentIndex],

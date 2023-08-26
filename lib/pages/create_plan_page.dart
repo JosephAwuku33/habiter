@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habiter/models/hive_data/habit_model.dart';
 import 'package:habiter/widgets/activity_widgets.dart';
 import 'package:habiter/widgets/gridview_widget.dart';
 import 'package:habiter/models/habit.dart';
@@ -38,19 +39,27 @@ class _CreatePageState extends State<CreatePage> {
   void _onSubmit(HabitProvider habitProvider) {
     try {
       if (_formKey.currentState!.validate()) {
+        /*
         final newHabit = Habit(
             title: _habitTitle,
             details: _habitDetails,
             activity: _selectedActivity,
             period: _selectedTimePeriod);
         habitProvider.addHabit(newHabit);
-
+*/
+        final newHabit = Habiter(
+            habitName: _habitTitle,
+            habitDetails: _habitDetails,
+            habitPeriod: _selectedTimePeriod,
+            habitActivity: _selectedActivity,
+            dateTaken: DateTime.now());
+        habitProvider.addHabit(newHabit);
         ScaffoldMessenger.of(context).showSnackBar(successSnackBar);
       }
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
       debugPrint(error.toString());
-    }
+    } finally {}
   }
 
   @override

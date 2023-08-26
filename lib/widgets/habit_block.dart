@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:habiter/provider/habit_provider.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:provider/provider.dart';
 
 class HabitBlock extends StatelessWidget {
   final String habitName;
-  const HabitBlock({super.key, required this.habitName});
+  final int id;
+  const HabitBlock({super.key, required this.habitName, required this.id});
 
   @override
   Widget build(BuildContext context) {
+    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
       child: Container(
@@ -21,7 +25,10 @@ class HabitBlock extends StatelessWidget {
             Row(
               children: [
                 //progress circle
-                CircularPercentIndicator(radius: 25, percent: 0.7),
+                //CircularPercentIndicator(radius: 25, percent: 0.7),
+                Text(id.toString(),
+                    style: const TextStyle(
+                        fontSize: 18, fontStyle: FontStyle.italic)),
                 const SizedBox(width: 25),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +40,7 @@ class HabitBlock extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "40%",
+                      habitProvider.habits[id].habitDetails,
                       style: TextStyle(color: Colors.blueGrey[900]),
                     )
                   ],
@@ -41,8 +48,10 @@ class HabitBlock extends StatelessWidget {
               ],
             ),
             IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {},
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                habitProvider.deleteHabit(id.toInt());
+              },
             ),
           ],
         ),

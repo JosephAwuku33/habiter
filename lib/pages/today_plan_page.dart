@@ -9,7 +9,7 @@ class TodayTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final habitProvider = Provider.of<HabitProvider>(context, listen: false);
+    //final habitProvider = Provider.of<HabitProvider>(context, listen: false);
 
     return SingleChildScrollView(
       child: Column(
@@ -70,14 +70,19 @@ class TodayTab extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 30),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: habitProvider.settings.length,
-                      itemBuilder: (context, index) {
-                        return HabitBlock(
-                            habitName: habitProvider.settings[index].title);
-                      }),
-                )
+                Expanded(child: Consumer<HabitProvider>(
+                  builder: (context, habitProvider, child) {
+                    final habits = habitProvider.habits;
+
+                    return ListView.builder(
+                        itemCount: habits.length,
+                        itemBuilder: (context, index) {
+                          return HabitBlock(
+                              habitName: habits[index].habitName,
+                              id: index.toInt());
+                        });
+                  },
+                ))
               ],
             ),
           )
