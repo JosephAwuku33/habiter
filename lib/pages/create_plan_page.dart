@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habiter/models/hive_data/habit_model.dart';
 import 'package:habiter/widgets/activity_widgets.dart';
 import 'package:habiter/widgets/gridview_widget.dart';
-import 'package:habiter/models/habit.dart';
+//import 'package:habiter/models/habit.dart';
 import 'package:habiter/provider/habit_provider.dart';
 import 'package:provider/provider.dart';
 

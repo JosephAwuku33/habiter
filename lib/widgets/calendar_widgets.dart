@@ -29,7 +29,7 @@ class _DateTimeCalendarsState extends State<DateTimeCalendars> {
       children: [
         CalendarTimeline(
           showYears: true,
-          initialDate: _selectedDate,
+          initialDate: DateTime.now(),
           firstDate: DateTime.now(),
           lastDate: DateTime.now().add(const Duration(days: 365 * 4)),
           onDateSelected: (date) => setState(() => _selectedDate = date),

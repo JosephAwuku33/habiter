@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habiter/provider/habit_provider.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
+//import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class HabitBlock extends StatelessWidget {
