@@ -44,8 +44,8 @@ class HabitProvider extends ChangeNotifier {
         minute = 0;
         break;
       case TimePeriod.Afternoon:
-        hour = 13;
-        minute = 12;
+        hour = 15;
+        minute = 0;
         break;
       case TimePeriod.Dawn:
         hour = 5;
@@ -82,57 +82,3 @@ class HabitProvider extends ChangeNotifier {
     );
   }
 }
-
-
-
-
-  /*
-  Future<void> scheduleNotification(TimePeriod period, context) async {
-    TimeOfDay intervalTime;
-    String notificationTitle = 'Habit Reminder';
-    String notificationBody = 'Remember to complete your habit!';
-
-    switch (period) {
-      case TimePeriod.Morning:
-        intervalTime = const TimeOfDay(hour: 8, minute: 0);
-        break;
-      case TimePeriod.Noon:
-        intervalTime = const TimeOfDay(hour: 12, minute: 0);
-        break;
-      case TimePeriod.Afternoon:
-        intervalTime = const TimeOfDay(hour: 15, minute: 0);
-        break;
-      case TimePeriod.Evening:
-        intervalTime = const TimeOfDay(hour: 18, minute: 0);
-        break;
-      case TimePeriod.Dawn:
-        intervalTime = const TimeOfDay(hour: 5, minute: 0);
-        break;
-      case TimePeriod.Dusk:
-        intervalTime = const TimeOfDay(hour: 19, minute: 0);
-        break;
-    }
-
-    DateTime now = DateTime.now();
-    DateTime scheduledTime = DateTime(
-        now.year, now.month, now.day, intervalTime.hour, intervalTime.minute);
-
-    if (scheduledTime.isBefore(now)) {
-      scheduledTime = scheduledTime.add(const Duration(days: 1));
-    }
-
-    if (scheduledTime.hour == intervalTime.hour) {
-      ElegantNotification(
-        title: Text(notificationTitle),
-        description: Text(notificationBody),
-        icon: const Icon(
-          Icons.notification_important,
-          color: Colors.orange,
-        ),
-        progressIndicatorColor: Colors.orange,
-      ).show(context);
-    }
-  }
-
-  */
-

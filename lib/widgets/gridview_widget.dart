@@ -80,13 +80,12 @@ class MyGridView extends StatelessWidget {
         SizedBox(
           child: ElevatedButton(
             onPressed: () {
-              onTimePeriodSelected('Anytime');
+              onTimePeriodSelected('Dusk');
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: selectedTimePeriod == 'Anytime'
-                    ? Colors.green
-                    : Colors.white),
-            child: const Text('Anytime',
+                backgroundColor:
+                    selectedTimePeriod == 'Dusk' ? Colors.green : Colors.white),
+            child: const Text('Dusk',
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
           ),
