@@ -4,6 +4,7 @@ import 'package:habiter/pages/notifications_page.dart';
 //import 'package:habiter/pages/progress_page.dart';
 //import 'package:habiter/pages/settings_page.dart';
 import 'package:habiter/pages/today_plan_page.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +21,17 @@ class _HomePageState extends State<HomePage> {
     const NotificationsPage(),
     //const SettingsPage()
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
+        AwesomeNotifications().requestPermissionToSendNotifications();
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -5,8 +5,22 @@ class NotificationsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Notifications"),
+      ),
+      backgroundColor: Colors.white,
+      body: const SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Text("Whatup RG"),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:habiter/misc/enums.dart';
 import 'package:habiter/models/hive_data/habit_model.dart';
 import 'package:habiter/widgets/activity_widgets.dart';
 import 'package:habiter/widgets/gridview_widget.dart';
-//import 'package:habiter/models/habit.dart';
 import 'package:habiter/provider/habit_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -39,14 +39,6 @@ class _CreatePageState extends State<CreatePage> {
   void _onSubmit(HabitProvider habitProvider) {
     try {
       if (_formKey.currentState!.validate()) {
-        /*
-        final newHabit = Habit(
-            title: _habitTitle,
-            details: _habitDetails,
-            activity: _selectedActivity,
-            period: _selectedTimePeriod);
-        habitProvider.addHabit(newHabit);
-*/
         final newHabit = Habiter(
             habitName: _habitTitle,
             habitDetails: _habitDetails,
@@ -54,7 +46,10 @@ class _CreatePageState extends State<CreatePage> {
             habitActivity: _selectedActivity,
             dateTaken: DateTime.now());
         habitProvider.addHabit(newHabit);
+        habitProvider.createHabitWithNotification(
+            habitName: _habitTitle, period: stringToEnum[_selectedTimePeriod]!);
         ScaffoldMessenger.of(context).showSnackBar(successSnackBar);
+        Navigator.pop(context);
       }
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(errorSnackBar);
@@ -74,7 +69,6 @@ class _CreatePageState extends State<CreatePage> {
         child: SingleChildScrollView(
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          //First container is for the upper section of the page
           Container(
             width: double.infinity,
             height: 330,
@@ -176,7 +170,6 @@ class _CreatePageState extends State<CreatePage> {
             },
             selectedTimePeriod: _selectedTimePeriod,
           ),
-          //const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Center(

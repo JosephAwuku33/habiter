@@ -25,10 +25,6 @@ class ActivityWidgets extends StatelessWidget {
         buildButton(context, 'assets/activity_icons/walk.svg', () {
           onSelectedActivity('Walking');
         }),
-        buildDivider(),
-        buildButton(context, 'assets/activity_icons/run.svg', () {
-          onSelectedActivity('Cycling');
-        }),
       ],
     );
   }
