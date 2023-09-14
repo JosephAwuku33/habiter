@@ -16,7 +16,7 @@ class HabitBlock extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: const Color(0xff7F45FF),
+          color: const Color(0xff7F4FFF),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -28,7 +28,9 @@ class HabitBlock extends StatelessWidget {
                 //CircularPercentIndicator(radius: 25, percent: 0.7),
                 Text(id.toString(),
                     style: const TextStyle(
-                        fontSize: 18, fontStyle: FontStyle.italic)),
+                        fontSize: 18,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white)),
                 const SizedBox(width: 25),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,12 +38,14 @@ class HabitBlock extends StatelessWidget {
                     Text(
                       habitName,
                       style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                     const SizedBox(height: 5),
                     Text(
                       habitProvider.habits[id].habitDetails,
-                      style: TextStyle(color: Colors.blueGrey[900]),
+                      style: const TextStyle(color: Colors.white),
                     )
                   ],
                 ),
@@ -49,6 +53,7 @@ class HabitBlock extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.delete),
+              color: Colors.white,
               onPressed: () {
                 habitProvider.deleteHabit(id.toInt());
               },

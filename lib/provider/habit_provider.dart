@@ -70,7 +70,7 @@ class HabitProvider extends ChangeNotifier {
         id: habitName.hashCode,
         channelKey: 'basic_channel',
         title: 'Reminder',
-        body: 'It\'s time for your habit: $habitName ',
+        body: '$habitName ',
       ),
       schedule: NotificationCalendar(
         hour: hour,
